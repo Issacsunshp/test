@@ -20,7 +20,7 @@ def result(request):
     print(s)
     #返回识别数据
     data = {'content':[i for i in s if i.isalpha()]}#列表生成器 只留字母
-    dic = {'image_bat':ocr_image.read(),'ocr_letter':data}#定义JSON数据流
+    dic = {'image_bat':ocr_image.read(),'ocr_letter':data}
     ImageModel.objects.create(**dic)#与数据库交互
     return JsonResponse (data)#返回JSON数据
 
